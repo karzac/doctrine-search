@@ -85,7 +85,7 @@ class Query
     /**
      * @var array
      */
-    protected $facets;
+    protected $aggregations;
 
     /**
      * @var integer
@@ -333,7 +333,7 @@ class Query
 
         if ($resultSet instanceof Elastica\ResultSet) {
             $this->count = $resultSet->getTotalHits();
-            $this->facets = $resultSet->getFacets();
+            $this->aggregations = $resultSet->getAggregations();
             $results = $resultSet->getResults();
 
         } else {
@@ -376,9 +376,9 @@ class Query
     /**
      * @return array
      */
-    public function getFacets()
+    public function getAggregations()
     {
-        return $this->facets;
+        return $this->aggregations;
     }
 
 }

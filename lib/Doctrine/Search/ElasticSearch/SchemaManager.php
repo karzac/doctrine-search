@@ -208,7 +208,7 @@ class SchemaManager implements Doctrine\Search\SchemaManager
 			$this->elastica->request(sprintf('_all/_alias/%s', $original), Request::DELETE);
 
 		} catch (ResponseException $e) {
-			if (stripos($e->getMessage(), 'AliasesMissingException') === FALSE) {
+			if (stripos($e->getMessage(), 'aliases') === FALSE) {
 				throw $e;
 			}
 		}
